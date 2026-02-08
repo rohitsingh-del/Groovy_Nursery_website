@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  ShoppingBag, 
-  Search, 
-  Menu, 
-  X, 
-  Leaf, 
-  Droplets, 
-  Sun, 
-  MessageCircle, 
-  ChevronRight, 
+import {
+  ShoppingBag,
+  Search,
+  Menu,
+  X,
+  Leaf,
+  Droplets,
+  Sun,
+  MessageCircle,
+  ChevronRight,
   Star,
   ArrowRight,
   Filter,
@@ -28,13 +28,13 @@ const GroovyNursery = () => {
 
   // Mock Data
   const categories = ['All', 'Indoor', 'Outdoor', 'Low Light', 'Pet Friendly', 'Succulents'];
-  
+
   const products = [
     {
       id: 1,
       name: 'Monstera Deliciosa',
       category: 'Indoor',
-      price: 45,
+      price: 1299,
       rating: 4.8,
       img: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Easy',
@@ -44,7 +44,7 @@ const GroovyNursery = () => {
       id: 2,
       name: 'Snake Plant Zeylanica',
       category: 'Low Light',
-      price: 29,
+      price: 899,
       rating: 4.9,
       img: 'https://images.unsplash.com/photo-1593482815960-94d0e801b606?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Hard to Kill',
@@ -54,7 +54,7 @@ const GroovyNursery = () => {
       id: 3,
       name: 'Fiddle Leaf Fig',
       category: 'Indoor',
-      price: 65,
+      price: 2499,
       rating: 4.5,
       img: 'https://images.unsplash.com/photo-1597055181300-e3621814d9f1?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Moderate',
@@ -64,7 +64,7 @@ const GroovyNursery = () => {
       id: 4,
       name: 'Spider Plant',
       category: 'Pet Friendly',
-      price: 18,
+      price: 499,
       rating: 4.7,
       img: 'https://images.unsplash.com/photo-1572688066348-7359997486e4?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Easy',
@@ -74,9 +74,9 @@ const GroovyNursery = () => {
       id: 5,
       name: 'String of Pearls',
       category: 'Succulents',
-      price: 22,
+      price: 699,
       rating: 4.6,
-      img: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=400',
+      img: 'https://images.unsplash.com/photo-1596723225255-667746408225?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Moderate',
       light: 'Bright'
     },
@@ -84,7 +84,7 @@ const GroovyNursery = () => {
       id: 6,
       name: 'Peace Lily',
       category: 'Indoor',
-      price: 32,
+      price: 999,
       rating: 4.8,
       img: 'https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&q=80&w=400',
       difficulty: 'Easy',
@@ -92,8 +92,8 @@ const GroovyNursery = () => {
     }
   ];
 
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
+  const filteredProducts = activeCategory === 'All'
+    ? products
     : products.filter(p => p.category === activeCategory || (activeCategory === 'Indoor' && p.category === 'Low Light'));
 
   const scrollToBottom = () => {
@@ -131,10 +131,10 @@ const GroovyNursery = () => {
             Groovy<span className="text-[#E2725B]">Nursery</span>
           </h1>
           <div className="hidden md:flex gap-6 font-medium text-sm uppercase tracking-wider">
-            <a href="#" className="hover:text-[#E2725B] transition-colors">Shop</a>
-            <a href="#" className="hover:text-[#E2725B] transition-colors">Care Guide</a>
-            <a href="#" className="hover:text-[#E2725B] transition-colors">Gift Sets</a>
-            <a href="#" className="hover:text-[#E2725B] transition-colors">About</a>
+            <a href="#shop" className="hover:text-[#E2725B] transition-colors">Shop</a>
+            <a href="#care" className="hover:text-[#E2725B] transition-colors">Care Guide</a>
+            <a href="#gift" className="hover:text-[#E2725B] transition-colors">Gift Sets</a>
+            <a href="#about" className="hover:text-[#E2725B] transition-colors">About</a>
           </div>
         </div>
 
@@ -153,8 +153,8 @@ const GroovyNursery = () => {
       {/* Hero Section */}
       <header className="relative h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1470058869958-2a77ade41c02?auto=format&fit=crop&q=80&w=2000" 
+          <img
+            src="https://images.unsplash.com/photo-1470058869958-2a77ade41c02?auto=format&fit=crop&q=80&w=2000"
             className="w-full h-full object-cover brightness-75"
             alt="Nursery Background"
           />
@@ -168,7 +168,7 @@ const GroovyNursery = () => {
             Premium, healthy plants delivered directly from our greenhouse to your doorstep. Groovy vibes included with every pot.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#E2725B] text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
+            <button onClick={() => document.getElementById('shop').scrollIntoView({ behavior: 'smooth' })} className="bg-[#E2725B] text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
               Shop Now <ArrowRight size={18} />
             </button>
             <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all">
@@ -199,7 +199,8 @@ const GroovyNursery = () => {
       </div>
 
       {/* Shop Section */}
-      <section className="py-20 px-4 md:px-24">
+      {/* Shop Section */}
+      <section id="shop" className="py-20 px-4 md:px-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <h3 className="text-4xl font-bold mb-2">Our Best Sellers</h3>
@@ -210,11 +211,10 @@ const GroovyNursery = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full whitespace-nowrap text-sm font-bold transition-all ${
-                  activeCategory === cat 
-                    ? 'bg-[#2D5A27] text-white shadow-lg' 
+                className={`px-6 py-2 rounded-full whitespace-nowrap text-sm font-bold transition-all ${activeCategory === cat
+                    ? 'bg-[#2D5A27] text-white shadow-lg'
                     : 'bg-[#2D5A27]/5 hover:bg-[#2D5A27]/10'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -226,9 +226,9 @@ const GroovyNursery = () => {
           {filteredProducts.map(product => (
             <div key={product.id} className="group cursor-pointer">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-[#F0EEE9] mb-4">
-                <img 
-                  src={product.img} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                <img
+                  src={product.img}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   alt={product.name}
                 />
                 <button className="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all">
@@ -247,7 +247,7 @@ const GroovyNursery = () => {
                     <Sun size={12} /> {product.light} Light
                   </p>
                 </div>
-                <p className="text-xl font-bold">${product.price}</p>
+                <p className="text-xl font-bold">₹{product.price}</p>
               </div>
             </div>
           ))}
@@ -255,11 +255,11 @@ const GroovyNursery = () => {
       </section>
 
       {/* Why Groovy Section */}
-      <section className="bg-[#B2AC88]/20 py-24 px-4 md:px-24 rounded-[4rem] mx-4 mb-20 flex flex-col md:flex-row items-center gap-12">
+      <section id="about" className="bg-[#B2AC88]/20 py-24 px-4 md:px-24 rounded-[4rem] mx-4 mb-20 flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
-          <img 
-            src="https://images.unsplash.com/photo-1583324113626-70df0f43aa2b?auto=format&fit=crop&q=80&w=800" 
-            className="rounded-[3rem] shadow-2xl" 
+          <img
+            src="https://images.unsplash.com/photo-1583324113626-70df0f43aa2b?auto=format&fit=crop&q=80&w=800"
+            className="rounded-[3rem] shadow-2xl"
             alt="Plant Care"
           />
         </div>
@@ -297,15 +297,48 @@ const GroovyNursery = () => {
         </div>
       </section>
 
+      {/* Care Guide Section */}
+      <section id="care" className="py-20 px-4 md:px-24 bg-white">
+        <div className="text-center max-w-3xl mx-auto">
+          <h3 className="text-3xl font-bold mb-6">Expert Care Guides</h3>
+          <p className="text-[#2D5A27]/60 mb-8">Every plant from Groovy Nursery comes with a detailed care card. Plus, our AI Gullu is always here to help!</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {['Watering', 'Light', 'Humidity'].map(item => (
+              <div key={item} className="p-6 border border-[#2D5A27]/10 rounded-2xl hover:border-[#E2725B] transition-colors cursor-pointer">
+                <h4 className="font-bold text-lg mb-2">{item}</h4>
+                <p className="text-sm opacity-70">Learn the secrets to perfect {item.toLowerCase()}.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gift Sets Section */}
+      <section id="gift" className="py-20 px-4 md:px-24 bg-[#E1AD01]/10 mb-20">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <span className="text-[#E2725B] font-bold tracking-widest uppercase text-sm mb-2 block">Gifting</span>
+            <h3 className="text-4xl font-bold mb-6">Grow Love with Gift Sets</h3>
+            <p className="text-[#2D5A27]/80 mb-8 text-lg">The perfect sustainable gift for birthdays, housewarmings, or just because.</p>
+            <button className="bg-[#2D5A27] text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+              View Collections
+            </button>
+          </div>
+          <div className="flex-1">
+            <img src="https://images.unsplash.com/photo-1512428813830-c625462947b9?auto=format&fit=crop&q=80&w=800" className="rounded-3xl shadow-xl" alt="Gift Set" />
+          </div>
+        </div>
+      </section>
+
       {/* Gullu AI Chatbot */}
       <div className="fixed bottom-6 right-6 z-[100]">
         {!isGulluOpen ? (
-          <button 
+          <button
             onClick={() => setIsGulluOpen(true)}
             className="bg-[#2D5A27] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-3 group"
           >
             <div className="w-10 h-10 bg-[#E1AD01] rounded-full flex items-center justify-center font-bold text-xl overflow-hidden">
-               <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Gullu" alt="Gullu" />
+              <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Gullu" alt="Gullu" />
             </div>
             <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 font-bold">Ask Gullu</span>
           </button>
@@ -326,16 +359,15 @@ const GroovyNursery = () => {
                 <X size={20} />
               </button>
             </div>
-            
+
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#FDFBF7]">
               {chatMessages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                    msg.role === 'user' 
-                      ? 'bg-[#2D5A27] text-white rounded-tr-none' 
+                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.role === 'user'
+                      ? 'bg-[#2D5A27] text-white rounded-tr-none'
                       : 'bg-white border border-[#2D5A27]/10 rounded-tl-none shadow-sm'
-                  }`}>
+                    }`}>
                     {msg.text}
                   </div>
                 </div>
@@ -345,15 +377,15 @@ const GroovyNursery = () => {
 
             {/* Input */}
             <div className="p-4 bg-white border-t border-[#2D5A27]/10 flex gap-2">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                placeholder="Ask about care, pet safety..." 
+                placeholder="Ask about care, pet safety..."
                 className="flex-1 bg-[#2D5A27]/5 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 ring-[#E2725B]"
               />
-              <button 
+              <button
                 onClick={handleSendMessage}
                 className="bg-[#2D5A27] text-white p-2 rounded-xl hover:bg-[#1e3c1a]"
               >
